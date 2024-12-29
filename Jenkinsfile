@@ -9,7 +9,7 @@ pipeline {
                 checkout scmGit(
                     branches: [[name: '*/main']],
                     extensions: [],
-                    userRemoteConfigs: [[credentialsId: 'ser3elah', url: 'URL_DU_REPO']]
+                    userRemoteConfigs: [[credentialsId: 'ser3elah', url: 'https://github.com/projet-fintech/Events-Microservice.git']]
                 )
              }
          }
@@ -24,9 +24,9 @@ pipeline {
    post {
         success {
             script {
-                build job: 'authentication-service-pipeline', parameters: [
+                build job: 'Authentication-Microservice', parameters: [
                 string(name: 'BUILD_LIB', value: 'false')]
-                 build job: 'user-service-pipeline', parameters: [
+                 build job: 'User-Micorservice', parameters: [
                  string(name: 'BUILD_LIB', value: 'false')]
             }
         }
