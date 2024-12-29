@@ -15,9 +15,7 @@ pipeline {
          }
         stage('Build lib') {
             steps {
-                 withMaven(maven: 'Maven') {
-                       sh 'mvn clean install -DskipTests=true'
-                    }
+                sh 'mvn clean install -DskipTests=true'
             }
          }
     }
