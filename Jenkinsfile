@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-         maven 'Maven'
+        maven 'Maven'
     }
     stages {
         stage('Checkout') {
@@ -9,24 +9,24 @@ pipeline {
                 checkout scmGit(
                     branches: [[name: '*/main']],
                     extensions: [],
-                    userRemoteConfigs: [[credentialsId: 'ser3elah', url: 'https://github.com/projet-fintech/Events-Microservice.git']]
+                    userRemoteConfigs: [[credentialsId: 'ser3elah', url: 'URL_DU_REPO']]
                 )
              }
-       }
-       stage('Build lib') {
-           steps {
-                withMaven(maven: 'Maven') {
+         }
+        stage('Build lib') {
+            steps {
+                 withMaven(maven: 'Maven') {
                        sh 'mvn clean install -DskipTests=true'
                     }
-             }
+            }
          }
     }
-    post {
+   post {
         success {
             script {
-                build job: 'Authentication-Microservice', parameters: [
+                build job: 'authentication-service-pipeline', parameters: [
                 string(name: 'BUILD_LIB', value: 'false')]
-                 build job: 'User-Micorservice', parameters: [
+                 build job: 'user-service-pipeline', parameters: [
                  string(name: 'BUILD_LIB', value: 'false')]
             }
         }
