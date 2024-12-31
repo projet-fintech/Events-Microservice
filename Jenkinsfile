@@ -23,9 +23,9 @@ pipeline {
    post {
         success {
             script {
-                build job: 'Authentication-Microservice', parameters: [
-                string(name: 'BUILD_LIB', value: 'false')]
                  build job: 'User-Micorservice', parameters: [
+                 string(name: 'BUILD_LIB', value: 'false')]
+                 build job: 'Authentication-Microservice', parameters: [
                  string(name: 'BUILD_LIB', value: 'false')]
             }
         }
