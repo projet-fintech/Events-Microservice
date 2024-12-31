@@ -16,15 +16,10 @@ pipeline {
         }
         stage('Build & Deploy') {
             steps {
-                sh 'mvn clean package -DskipTests=true'
-                sh 'mkdir -p /var/jenkins_home/shared-artifacts'
-                sh 'cp target/events-lib-1.0-SNAPSHOT.jar /var/jenkins_home/shared-artifacts/'
+                sh 'mvn clean install -DskipTests=true'
+                sh 'mkdir -p /var/jenkins_home/shared-artifacts/repo/com/banque/events-lib/1.0-SNAPSHOT'
+                sh 'cp target/events-lib-1.0-SNAPSHOT.jar /var/jenkins_home/shared-artifacts/repo/com/banque/events-lib/1.0-SNAPSHOT/'
             }
-        }
-    }
-    post {
-        success {
-            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
     }
 }
