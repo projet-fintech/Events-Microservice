@@ -14,7 +14,7 @@ pipeline {
                 )
              }
          }
-        stage('Build') {
+        stage('Building') {
             steps {
                 sh 'mvn clean install -DskipTests=true'
             }
