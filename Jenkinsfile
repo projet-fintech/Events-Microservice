@@ -20,17 +20,5 @@ pipeline {
                }
             }
         }
-     post {
-        success {
-            script {
-              def  buildLibSuccess = "true"
-              build job: 'User-Micorservice', parameters: [
-               string(name: 'BUILD_LIB_SUCCESS', value: buildLibSuccess)
-             ]
-              build job: 'Authentication-Microservice', parameters: [
-               string(name: 'BUILD_LIB_SUCCESS', value: buildLibSuccess)
-              ]
-            }
-        }
-    }
+
 }
