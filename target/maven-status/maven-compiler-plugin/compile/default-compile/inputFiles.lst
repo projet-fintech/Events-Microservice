@@ -1,1 +1,4 @@
 /home/southern-bihi/Desktop/Dev/FinTech/microservices-events/src/main/java/com/banque/events/UserEvent.java
+/home/southern-bihi/Desktop/Dev/FinTech/microservices-events/src/main/java/com/banque/events/enums/AccountStatus.java
+/home/southern-bihi/Desktop/Dev/FinTech/microservices-events/src/main/java/com/banque/events/enums/AccountType.java
+/home/southern-bihi/Desktop/Dev/FinTech/microservices-events/src/main/java/com/banque/events/dto/AccountDto.java

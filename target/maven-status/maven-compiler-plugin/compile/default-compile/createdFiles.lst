@@ -1,1 +1,4 @@
+com/banque/events/dto/AccountDto.class
+com/banque/events/enums/AccountStatus.class
 com/banque/events/UserEvent.class
+com/banque/events/enums/AccountType.class
